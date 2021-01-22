@@ -92,22 +92,35 @@ namespace tugasweek15_pravangasta_0706022010032
 
         private void deletebut_Click(object sender, EventArgs e)
         {
-            if (rightbox.Items.Count == 0)
+            //if (rightbox.Items.Count == 0)
+            //{
+            //    MessageBox.Show("Harap memasukan data terlebih dahulu");
+            //}
+            //else
+            //{
+            //    if (leftbox.SelectedIndex == -1)
+            //    {
+            //        rightbox.Items.Clear();
+            //    }
+            //    else
+            //    {
+            //        rightbox.Items.RemoveAt(leftbox.SelectedIndex);
+            //    }
+            //}
+            if (rightbox.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Harap memasukan data terlebih dahulu");
+                rightbox.Items.Clear();
             }
             else
             {
-                if (leftbox.SelectedIndex == -1)
+                for (int i = rightbox.SelectedIndices.Count - 1; i >= 0; i--)
                 {
-                    rightbox.Items.Clear();
-                }
-                else
-                {
-                    rightbox.Items.RemoveAt(leftbox.SelectedIndex);
+                    rightbox.Items.Remove(rightbox.SelectedItems[i]);
                 }
             }
-           
+            rightbox.ClearSelected();
+
+
 
         }
 
